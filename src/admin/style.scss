@@ -1,0 +1,21 @@
+#wp-guten {
+    width: 500px;
+
+    form {
+
+        input,
+        textarea {
+            width: 100%;
+        }
+    }
+
+    // `Notice` component from @wordpress/components style override
+    .components-notice {
+        margin-left: 0;
+        margin-right: 0;
+
+        &.is-dismissible {
+            padding-right: 12px;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "wp-plugin-with-gutenberg-packages",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Edi Amin <to.ediamin@gmail.com>",
+  "license": "MIT",
+  "keywords": [],
+  "devDependencies": {
+    "@wordpress/scripts": "^6.0.0",
+    "concurrently": "^5.0.0",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently npm:dev:*",
+    "dev:admin": "wp-scripts start src/admin/wp-guten-admin.js --output-path=assets/js",
+    "dev:frontend": "wp-scripts start src/frontend/wp-guten-frontend.js --output-path=assets/js",
+    "lint:js": "wp-scripts lint-js src/",
+    "lint:css": "wp-scripts lint-style src/",
+    "make-pot": "wp i18n make-pot ./ languages/wp-guten.pot --exclude=assets"
+  }  
+}

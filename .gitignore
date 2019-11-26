@@ -1,0 +1,18 @@
+# Editors
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Operating system related
+.DS_Store
+Thumbs.db
+
+# Redis DB
+dump.rdb
+
+# Dev environment
+/node_modules/
+/assets/js/
+/assets/css/
+/languages/
