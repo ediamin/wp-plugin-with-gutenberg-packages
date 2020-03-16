@@ -6,12 +6,12 @@
   "license": "MIT",
   "keywords": [],
   "devDependencies": {
-    "@wordpress/scripts": "^6.0.0",
-    "concurrently": "^5.0.0",
-    "css-loader": "^3.2.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0"
+    "@wordpress/scripts": "^7.1.2",
+    "concurrently": "^5.1.0",
+    "css-loader": "^3.4.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2"
   },
   "scripts": {
     "dev": "concurrently npm:dev:*",
@@ -20,5 +20,5 @@
     "lint:js": "wp-scripts lint-js src/",
     "lint:css": "wp-scripts lint-style src/",
     "make-pot": "wp i18n make-pot ./ languages/wp-guten.pot --exclude=assets"
-  }  
+  }
 }
