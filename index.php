@@ -41,7 +41,7 @@ function wp_guten_enqueue_scripts() {
     // enqueue admin styles
     wp_enqueue_style(
         'wp-guten-admin',
-        WP_GUTEN_PLUGIN_ROOT_URL . '/assets/css/wp-guten-admin.css',
+        WP_GUTEN_PLUGIN_ROOT_URL . '/assets/css/style-wp-guten-admin.css',
         [ 'wp-components' ], // required since we're using @wordpress/components
         $asset['version']
     );
@@ -54,4 +54,12 @@ function wp_guten_enqueue_scripts() {
         $asset['version'],
         true
     );
+
+    $data = [
+        'url' => [
+            'assests' => WP_GUTEN_PLUGIN_ROOT_URL . '/assets',
+        ],
+    ];
+
+    wp_localize_script( 'wp-guten-admin', 'wpGuten', $data );
 }

@@ -1,33 +1,29 @@
+const path = require( 'path' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const plugins = [];
 
-const plugins = [
-    new MiniCssExtractPlugin( {
-        filename: '../css/[name].css',
-    } ),
+function resolve( ...paths ) {
+    return path.resolve( __dirname, ...paths );
+}
 
-    ...defaultConfig.plugins,
-];
+defaultConfig.plugins.forEach( ( item ) => {
+    if ( item instanceof MiniCssExtractPlugin ) {
+        item.options.filename = '../css/[name].css';
+        item.options.chunkFilename = '../css/[name].css';
+        item.options.esModule = true;
+    }
+
+    plugins.push( item );
+} );
 
 module.exports = {
     ...defaultConfig,
 
     plugins,
 
-    module: {
-        ...defaultConfig.module,
-
-        rules: [
-            ...defaultConfig.module.rules,
-
-            {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader',
-                ],
-            },
-        ],
+    output: {
+        filename: '[name].js',
+        path: resolve( 'assets', 'js' ),
     },
 };

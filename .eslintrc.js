@@ -1,11 +1,17 @@
-const defaultConfig = require( '@wordpress/scripts/config/.eslintrc.js' );
+const defaultConfig = require( '@wordpress/scripts/config/.eslintrc' );
+const prettierConfig = require( './.prettierrc.js' );
 
 module.exports = {
     ...defaultConfig,
     rules: {
+        ...defaultConfig.rules,
         '@wordpress/dependency-group': 'error',
-        'indent': [ 'error', 4 ],
-        'react/jsx-indent': [ 'error', 4 ],
-        'react/jsx-indent-props': [ 'error', 4 ],
-    }
+        'prettier/prettier': [ 'error', prettierConfig ],
+        'no-unused-expressions': [
+            'error',
+            {
+                allowShortCircuit: true,
+            }
+        ]
+    },
 };

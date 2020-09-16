@@ -9,7 +9,4 @@ import { render } from '@wordpress/element';
 import './style.scss';
 import App from './App';
 
-render(
-    <App />,
-    document.getElementById( 'wp-guten' )
-);
+render( <App />, document.getElementById( 'wp-guten' ) );
